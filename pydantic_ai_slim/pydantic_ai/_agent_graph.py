@@ -810,8 +810,7 @@ class CallToolsNode(AgentNode[DepsT, NodeRunEndT]):
                 _messages.ModelRequest(parts=output_parts, instructions=instructions)
             )
 
-    @staticmethod
-    def _recover_text_from_message_history(message_history: list[_messages.ModelMessage]) -> str | None:
+    def _recover_text_from_message_history(self, message_history: list[_messages.ModelMessage]) -> str | None:
         """Search backward through message history for recoverable text from a previous model response.
 
         This handles cases where the model returned text alongside tool calls (so the text was
